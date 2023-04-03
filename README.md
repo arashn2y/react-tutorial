@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You need to have Node.js installed on your computer.\
+You can download it from [here](https://nodejs.org/en/download/).\
+You can check if you have Node.js installed by running this command in your terminal:
+
+```bash
+node -v
+```
+
+You need to have npm installed on your computer.\
+You can check if you have npm installed by running this command in your terminal:
+
+```bash
+npm -v
+```
+
+## Installation
 To install all the dependencies and devDependencies, run the following command in the root directory of the project.
 
 ```bash
