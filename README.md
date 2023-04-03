@@ -31,7 +31,7 @@ The `index.css` file is the main css file of the project.\
 In Pages folder you can find the pages of the project.\
 In Components folder you can find the components of the project.\
 In Assets folder you can find the images of the project.\
-We use Tailwind CSS for styling the project.\
+We use Tailwind CSS for styling the project.
 
 ## Available Scripts
 
