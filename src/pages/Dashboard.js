@@ -8,7 +8,7 @@ const Dashboard = () => {
     <>
       <Header title="Feedback UI" icon={<FiLogIn />} />
       <main className="w-full flex flex-col justify-center items-center relative">
-        <ReviewCard />
+      <ReviewCard title="Come descriverebbe la sua esperienza?"/>
       </main>
     </>
   );
