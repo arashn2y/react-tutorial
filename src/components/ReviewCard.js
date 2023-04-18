@@ -94,8 +94,8 @@ const ReviewCard = props => {
           <div className="flex justify-between my-4">{renderedRating}</div>
           <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
             <Input text={review.opinion} onChange={changeHandler} />
-            <Button onClick={clickHandler} disabled={disabled} text="Conferma" color="bg-green-500" marginRight="mr-2" />
-            <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" color="bg-red-500" />
+            <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-2" />
+            <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" hover='bg-red-500' />
           </div>
           <div className="text-red-500 font-semibold h-3 mt-2 text-center">{error}</div>
         </div>
