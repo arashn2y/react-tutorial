@@ -11,7 +11,7 @@ function Reviews(props) {
               Voto medio: 
             </p>
           </div>
-            <Review />
+            {/* <Review /> */}
         </div>
   )
 }
