@@ -3,20 +3,27 @@ import Button from "./Button";
 import Input from "./Input";
 
 const ReviewCard = props => {
-  const { title } = props;
+  const { title, setReviews } = props;
 
-  const [opinion, setOpinion] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState("");
   const [borderColor, setBorderColor] = useState("border-gray-100");
-  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState({
+    opinion: '',
+    rating: 0
+  });
 
   const changeHandler = event => {
-    const userInput = event.target.value.trim();
+    const userInput = event.target.value;
 
     setError("");
     setBorderColor("border-gray-100");
-    setOpinion(userInput);
+    setReview((prevState) => {
+      return {
+      ...prevState,
+      opinion: userInput,
+      }
+    })
 
     if (userInput.length === 0) {
       setDisabled(true);
@@ -26,32 +33,58 @@ const ReviewCard = props => {
   };
 
   const clickHandler = () => {
-    if (opinion.length < 8) {
-      setError("devi scrivere almeno 8 caratteri");
+    if (review.opinion.length < 8 || review.rating === 0) {
+      setError("devi scrivere almeno 8 caratteri E  selezionare un voto");
       setBorderColor("border-red-500");
     } else {
       setError("");
       setBorderColor("border-gray-100");
+      setReviews((prevState) => {
+        return [
+          ...prevState,
+          review
+        ]
+      })
+      setReview({
+        opinion: '',
+        rating: 0
+      })
+      setDisabled(true);
     }
   };
   const removeClickHandler = () => {
-    setOpinion("");
+    setReview((prevState) => {
+      return {
+        ...prevState,
+        opinion: ''
+      }
+    })
     setDisabled(true);
   };
 
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const renderedRating = [...array].map((number, index) => {
+    const initialClassName = "border-2 border-transparent mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 ";
+    const initialState = review.rating === 0 ? 'bg-slate-300 hover:bg-dark-green' : '';
+    const ratingClassName = review.rating === number ? 'bg-dark-green' : 'bg-slate-100 hover:bg-dark-green';
+    const className = initialClassName + initialState + ratingClassName;
     return (
       <button
         key={index}
-        className="border-2 border-transparent mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 bg-slate-100 hover:bg-dark-green"
-        onClick={() => setRating(number)}>
+        className={className}
+        onClick={() => {
+          setReview((prevState) => {
+            return {
+              ...prevState,
+              rating: number
+            }
+          })
+        }}>
         {number}
       </button>
     );
   });
 
-  console.log(rating);
 
   return (
     <div className="w-full flex justify-center items-center p-1">
@@ -60,7 +93,7 @@ const ReviewCard = props => {
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
           <div className="flex justify-between my-4">{renderedRating}</div>
           <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
-            <Input text={opinion} onChange={changeHandler} />
+            <Input text={review.opinion} onChange={changeHandler} />
             <Button onClick={clickHandler} disabled={disabled} text="Conferma" color="bg-green-500" marginRight="mr-2" />
             <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" color="bg-red-500" />
           </div>
