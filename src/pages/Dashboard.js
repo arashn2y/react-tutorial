@@ -7,13 +7,18 @@ import Reviews from "../components/Reviews";
 
 const Dashboard = () => {
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
+  const [review, setReview] = useState({
+    id: "",
+    opinion: "",
+    rating: 0
+  });
+
   return (
     <>
       <Header title="Feedback UI" icon={<FiLogIn />} />
       <main className="w-full flex flex-col justify-center items-center relative">
-      <ReviewCard title="Come descriverebbe la sua esperienza?" setReviews={setReviews}/>
-      <Reviews />
+        <ReviewCard title="Come descriverebbe la sua esperienza?" setReviews={setReviews} review={review} setReview={setReview} />
+        <Reviews reviews={reviews} setReviews={setReviews} review={review} setReview={setReview} />
       </main>
     </>
   );

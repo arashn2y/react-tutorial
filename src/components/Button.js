@@ -1,7 +1,6 @@
 
 const Button = (props) => {
     const {text, onClick, disabled, color, marginRight, hover: recivedHover} = props;
-    console.log(recivedHover);
 
     const bgColor = color ? color : 'bg-slate-300';
     const hover = recivedHover ? recivedHover : 'bg-dark-green';
