@@ -92,6 +92,11 @@ const ReviewCard = props => {
         key={index}
         className={className}
         onClick={() => {
+          setError("");
+          setBorderColor("border-gray-100");
+          if (review.rating !== number) {
+            setDisabled(false);
+          }
           setReview(prevState => {
             return {
               ...prevState,

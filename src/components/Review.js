@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
+import { DashboardContext } from "../contexts/DashboardContext";
 
 const Review = props => {
-  const { review, setReviews, setReview } = props;
+  const { review } = props;
+  const { setReview, setReviews }  = useContext(DashboardContext);
 
   return (
     <div

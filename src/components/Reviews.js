@@ -1,9 +1,9 @@
 import Review from "./Review";
 function Reviews(props) {
-  const { reviews, setReviews, setReview } = props;
+  const { reviews } = props;
 
   const renderedList = reviews.map(review => {
-    return <Review key={review.id} review={review} setReviews={setReviews} setReview={setReview} />;
+    return <Review key={review.id} review={review} />;
   });
 
   const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0);
