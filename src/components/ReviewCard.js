@@ -116,7 +116,7 @@ const ReviewCard = props => {
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
           <div className="flex justify-between my-4">{renderedRating}</div>
           <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
-            <Input text={review.opinion} onChange={changeHandler} />
+            <Input text={review.opinion} onChange={changeHandler} placeholder="la tua opinione..." type="text" />
             <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-2" />
             <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" hover="bg-red-500" />
           </div>

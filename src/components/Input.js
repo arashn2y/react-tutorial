@@ -1,11 +1,12 @@
 const Input = (props) => {
-    const {text, onChange} = props;
+    const {type, text, onChange, placeholder} = props;
+
   return (
     <input
-      type="text"
+      type={type}
       value={text}
       className="w-full focus:outline-none border-none text-xl p-1"
-      placeholder="la tua opinione..."
+      placeholder={placeholder}
       onChange={onChange}
       style={{
         width: "100%",
