@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import ReviewCard from "../components/ReviewCard";
 import Reviews from "../components/Reviews";
 import { DashboardContext } from "../contexts/DashboardContext";
+import Loading from "../components/Loading";
 
 const Dashboard = () => {
   const [reviews, setReviews] = useState([]);
@@ -47,7 +48,7 @@ const Dashboard = () => {
         </DashboardContext.Provider>
       </main>
       <div className="w-full text-center">
-      <p>{loading ? 'Loading' : ''}</p>
+      {loading && <Loading />}
       </div>
     </>
   );

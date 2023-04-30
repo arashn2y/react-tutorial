@@ -65,8 +65,8 @@ const Login = () => {
           </div>
           <div className="text-red-500 font-semibold h-3 mt-2 text-center">{passwordError}</div>
         </div>
-        <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md`}>
-            <Button text='Sing In' onClick={clickHandler} />
+        <div className={`w-full flex justify-center items-center mt-4 rounded-md`}>
+            <Button text='Sign In' onClick={clickHandler} width='w-full' />
           </div>
       </div>
     </div>
