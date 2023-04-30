@@ -26,15 +26,15 @@ const Dashboard = () => {
             rating: review.rating
           }
         })
+        setLoading(false);
         setReviews(filteredReview);
-        setLoading(false)
       }
       fetchData();
   },[]);
 
   return (
     <>
-      <Header title="Feedback UI" icon={<FiLogIn />} />
+      <Header title="Feedback UI" icon={<FiLogIn />} link='/login' />
       <main className="w-full flex flex-col justify-center items-center relative">
         <DashboardContext.Provider value={{
       review,

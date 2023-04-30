@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import { v4 as uuid } from "uuid";
@@ -9,6 +9,12 @@ const ReviewCard = props => {
   const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState("");
   const [borderColor, setBorderColor] = useState("border-gray-100");
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [])
 
   const changeHandler = event => {
     const userInput = event.target.value;
@@ -116,7 +122,7 @@ const ReviewCard = props => {
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
           <div className="flex justify-between my-4">{renderedRating}</div>
           <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
-            <Input text={review.opinion} onChange={changeHandler} placeholder="la tua opinione..." type="text" />
+            <Input text={review.opinion} onChange={changeHandler} placeholder="la tua opinione..." type="text" ref={inputRef} />
             <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-2" />
             <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" hover="bg-red-500" />
           </div>

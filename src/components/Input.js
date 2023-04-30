@@ -1,9 +1,13 @@
-const Input = (props) => {
+import { forwardRef } from 'react';
+
+const Input = forwardRef(
+  (props, ref) => {
     const {type, text, onChange, placeholder} = props;
 
   return (
     <input
       type={type}
+      ref={ref}
       value={text}
       className="w-full focus:outline-none border-none text-xl p-1"
       placeholder={placeholder}
@@ -16,6 +20,7 @@ const Input = (props) => {
       }}
     />
   );
-};
+}
+);
 
 export default Input;
